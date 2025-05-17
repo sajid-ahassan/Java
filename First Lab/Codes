@@ -1,0 +1,45 @@
+// import java.util.Scanner;
+// public class Sajid909 {
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         int a = sc.nextInt();
+//         int b = sc.nextInt();
+//         int c = sc.nextInt();
+//         a += 5;
+//         b *= 11;
+//         c = 3 - c;
+//         boolean comp = (a != c) && (c <= b);
+//         System.out.println(!comp);
+//     }
+// }
+
+import java.util.Scanner;
+
+public class Sajid909 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        int age = sc.nextInt();
+        String blood_grp = sc.next();
+        // System.out.println(name[0]);
+        if (age > 18) {
+            if (name.equals("Tim")) {
+                System.out.println("Account Type?");
+                String str = sc.next();
+                System.out.printf("Age: %d,\nAccount: %s\n", age, str);
+            }
+        } else if (age <= 18 && age >= 12) {
+            System.out.printf("Name : %s,\nBlood Group: %s\n", name, blood_grp);
+        } else {
+            boolean flag = name.contains("Jhon");
+            // System.out.println(flag);
+            if (flag == true) {
+            System.out.println(name);
+            System.out.println(age);
+            System.out.println(blood_grp);
+            }
+
+        }
+
+    }
+}
