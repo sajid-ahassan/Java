@@ -1,0 +1,34 @@
+package com.mycompany.sajid_909;
+
+import java.util.Scanner;
+
+public class Sajid_909 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the size of the array \n");
+        int n = sc.nextInt();
+        if (n < 5 || n > 10) {
+            System.out.println("Invalid range");
+            return;
+        }
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        double[] modified_array = new double[n];
+        for (int i = 0; i < n; i++) {
+            if (i % 2 == 0) {
+                modified_array[i] = arr[i] / 3.02;
+            } else {
+                modified_array[i] = arr[i] * 5;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            System.out.print(modified_array[i]);
+            System.out.print(' ');
+        }
+        System.out.print('\n');
+        
+    }
+}
