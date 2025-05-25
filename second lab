@@ -1,0 +1,72 @@
+package testj;
+
+import java.util.Scanner;
+import static java.util.Arrays.sort;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class sajid_909 {
+	public static void main(String[] args) {
+		// Scanner sc = new Scanner(System.in);
+		// // int[] arr = new int[n];
+		// // for (int i = 0; i < n; i++) {
+		// // arr[i] = sc.nextInt();
+		// // }
+		// // sort(arr);
+		// // for (int i = 0; i < n; i++) {
+		// // System.out.printf("%d ", arr[i]);
+		// // }
+		// int n = sc.nextInt();
+		// ArrayList<Integer> arr = new ArrayList<Integer>();
+		// for (int i = 0; i < n; i++) {
+		// 	arr.add(sc.nextInt());
+		// }
+		// Collections.sort(arr);
+		// // for (int i = 0; i < n; i++) {
+		// // 	System.out.printf("%d ", arr.get(i));
+		// // }
+		// for (int value : arr) {
+		// 	System.out.printf("%d ", value);
+		// }
+		// sc.close();
+
+		// dog jhon = new dog();
+
+		dog bob = new dog("Bob",13);
+		bob.setAge(20);
+
+		int age = bob.getAge();
+		System.out.println(age);
+		
+	}
+}
+
+
+
+package testj;
+
+public class dog {
+    private String name;
+    private int age;
+
+    // public dog() {
+    //     System.out.println("Dog!!");
+    // }
+
+    public dog(String name, int age) {
+        this.name = name;
+        this.age = age;
+        display();
+    }
+    public void setAge(int age){
+        this.age = age;
+    }
+    public int getAge(){
+        return this.age;
+    }
+    public void display() {
+        System.out.println(name);
+        System.out.println(age);
+    }
+}
+
