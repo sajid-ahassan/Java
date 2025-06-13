@@ -1,0 +1,95 @@
+
+import java.util.ArrayList;
+
+class course {
+
+    int code;
+    double credit;
+
+    course(int code, double credit) {
+        this.code = code;
+        this.credit = credit;
+    }
+
+    public void display() {
+        System.out.println("course id " + code + " course credit " + credit);
+    }
+}
+
+class proff {
+
+    int id;
+
+    ArrayList<course> courses = new ArrayList<>();
+    // List<course> courses;
+
+    proff(int id) {
+        this.id = id;
+    }
+
+    public void addcourse(course cr) {
+        courses.add(cr);
+    }
+
+    public void display() {
+        System.out.println("proffesor "+id);
+        for (course c : courses) {
+            c.display();
+        }
+    }
+}
+
+class dep {
+
+    int dptid;
+    // List<proff> proffs;
+    ArrayList<proff> proffs = new ArrayList<>();
+
+    public dep(int id) {
+        dptid = id;
+    }
+
+    public void addproff(proff id) {
+        proffs.add(id);
+    }
+
+    public void display() {
+        System.out.println("Department "+ dptid);
+        for (proff pr : proffs) {
+            pr.display();
+        }
+    }
+}
+
+public class practice {
+
+    public static void main(String[] args) {
+        dep cse = new dep(241);
+        proff kamal = new proff(11);
+        proff jamal = new proff(12);
+
+        course math = new course(101, 2);
+        course phy = new course(102, 3);
+
+        cse.addproff(kamal);
+        cse.addproff(jamal);
+
+        kamal.addcourse(math);
+        jamal.addcourse(phy);
+        cse.display();
+
+        dep bse = new dep(242);
+        proff samal = new proff(13);
+        proff pamal = new proff(14);
+
+        course kath = new course(201, 2.5);
+        course khy = new course(202, 3.5);
+
+        bse.addproff(samal);
+        bse.addproff(pamal);
+
+        samal.addcourse(kath);
+        pamal.addcourse(khy);
+        bse.display();
+    }
+}
