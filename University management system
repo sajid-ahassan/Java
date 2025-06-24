@@ -1,0 +1,99 @@
+import javax.swing.plaf.IconUIResource;
+import java.util.*;
+
+class University{
+    private String name;
+    public University(String name){
+        this.name = name;
+    }
+
+}
+class std{
+    private int stdID;
+    private String stdName;
+    public std(int stdID,String stdName){
+        this.stdID = stdID;
+        this.stdName = stdName;
+    }
+
+}
+
+class Courses{
+    private int code;
+    private double credit;
+    public Courses(int code,double credit)
+    {
+      this.code=code;
+      this.credit = credit;
+    }
+    ArrayList<std> stds = new ArrayList<>();
+    public void addstd(std st){
+        stds.add(st);
+    }
+
+}
+
+class Teacher{
+    private int teacherID;
+    private String name;
+    public Teacher(int teacherID,String name){
+        this.teacherID = teacherID;
+        this.name = name;
+    }
+    ArrayList<Courses> courses = new ArrayList<>();
+
+
+    public void addcourses(Courses cr){
+        courses.add(cr);
+    }
+
+}
+
+
+
+
+class Dept{
+    private int deptId;
+    private String deptName;
+    public Dept(int deptId,String deptName){
+        this.deptId = deptId;
+        this.deptName = deptName;
+    }
+    ArrayList<Teacher> Teachers = new ArrayList<>();
+    public void addTeacher(Teacher cs){
+        Teachers.add(cs);
+    }
+
+    public void display(){
+        System.out.println("Department "+ deptName);
+        for(Teacher tc : Teachers){
+            Teacher.display();
+        }
+    }
+
+}
+
+
+
+public class practice1 {
+    public static void main(String[] args){
+        Dept cse = new Dept(1000,"CSE");
+
+        Teacher jamal = new Teacher(100,"Jamal");
+        Teacher kamal = new Teacher(101,"Kamal");
+
+        Courses phy = new Courses(220,3.0);
+        Courses math = new Courses(221,2.0);
+        Courses english = new Courses(230,5.0);
+
+        cse.addTeacher(jamal);
+        cse.addTeacher(kamal);
+
+        jamal.addcourses(phy);
+        jamal.addcourses(math);
+
+        kamal.addcourses(english);
+
+
+    }
+}
