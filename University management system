@@ -1,99 +1,105 @@
-import javax.swing.plaf.IconUIResource;
-import java.util.*;
 
-class University{
-    private String name;
-    public University(String name){
-        this.name = name;
+import java.util.ArrayList;
+
+class Department {
+
+    private int deptid;
+
+    public Department(int id) {
+        this.deptid = id;
+    }
+    ArrayList<Professor> profess = new ArrayList<>();
+
+    public void addprof(Professor proff) {
+        profess.add(proff);
     }
 
-}
-class std{
-    private int stdID;
-    private String stdName;
-    public std(int stdID,String stdName){
-        this.stdID = stdID;
-        this.stdName = stdName;
-    }
-
-}
-
-class Courses{
-    private int code;
-    private double credit;
-    public Courses(int code,double credit)
-    {
-      this.code=code;
-      this.credit = credit;
-    }
-    ArrayList<std> stds = new ArrayList<>();
-    public void addstd(std st){
-        stds.add(st);
-    }
-
-}
-
-class Teacher{
-    private int teacherID;
-    private String name;
-    public Teacher(int teacherID,String name){
-        this.teacherID = teacherID;
-        this.name = name;
-    }
-    ArrayList<Courses> courses = new ArrayList<>();
-
-
-    public void addcourses(Courses cr){
-        courses.add(cr);
-    }
-
-}
-
-
-
-
-class Dept{
-    private int deptId;
-    private String deptName;
-    public Dept(int deptId,String deptName){
-        this.deptId = deptId;
-        this.deptName = deptName;
-    }
-    ArrayList<Teacher> Teachers = new ArrayList<>();
-    public void addTeacher(Teacher cs){
-        Teachers.add(cs);
-    }
-
-    public void display(){
-        System.out.println("Department "+ deptName);
-        for(Teacher tc : Teachers){
-            Teacher.display();
+    public void display() {
+        System.out.println("Department id " + deptid);
+        for (Professor pr : profess) {
+            pr.display();
         }
     }
-
 }
 
+class Professor {
 
+    private int id;
 
-public class practice1 {
-    public static void main(String[] args){
-        Dept cse = new Dept(1000,"CSE");
+    public Professor(int id) {
+        this.id = id;
+    }
+    ArrayList<Department> dept = new ArrayList<>();
+    ArrayList<Course> cou = new ArrayList<>();
 
-        Teacher jamal = new Teacher(100,"Jamal");
-        Teacher kamal = new Teacher(101,"Kamal");
+    public void adddept(Department dpt) {
+        dept.add(dpt);
+    }
 
-        Courses phy = new Courses(220,3.0);
-        Courses math = new Courses(221,2.0);
-        Courses english = new Courses(230,5.0);
+    public void addcourses(Course cr) {
+        cou.add(cr);
+    }
 
-        cse.addTeacher(jamal);
-        cse.addTeacher(kamal);
+    public void display() {
+        System.out.println("Professor id " + id);
+        for (Course cr : cou) {
+            cr.display();
+        }
+    }
+}
 
-        jamal.addcourses(phy);
-        jamal.addcourses(math);
+class Course {
 
-        kamal.addcourses(english);
+    private int code;
+    private double credit;
 
+    public Course(int c, double cr) {
+        code = c;
+        credit = cr;
+    }
+    ArrayList<Professor> pr = new ArrayList<>();
 
+    public void addprof(Professor p) {
+        pr.add(p);
+    }
+
+    public void display() {
+        System.out.println("Course code + credit " + code + " " + credit);
+        for(Professor p : pr)
+        {
+            p.display();
+        }
+    }
+}
+
+public class practice{
+    public static void main(String[] args) {
+        Department cse = new Department(1);
+        Department swe = new Department(2);
+
+        Professor kamal = new Professor(51);
+        Professor jamal = new Professor(52);
+        Professor Sumal = new Professor(53);
+        Professor Damal = new Professor(54);
+
+        Course math = new Course(101, 2.0);
+        Course phy = new Course(102, 2.5);
+        Course DS = new Course(103, 3.0);
+        Course OOP = new Course(104, 4.0);
+        
+        cse.addprof(kamal);
+        cse.addprof(jamal);
+        cse.addprof(Sumal);
+
+        swe.addprof(Damal);
+
+        kamal.addcourses(DS);
+        jamal.addcourses(OOP);
+        kamal.addcourses(OOP);
+        Sumal.addcourses(phy);
+        kamal.addcourses(math);
+        Damal.addcourses(OOP);
+
+        swe.display();
     }
 }
